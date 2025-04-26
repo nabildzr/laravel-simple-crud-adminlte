@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
 
-
+// utk yg belum login
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', function () {
     return view('login');
@@ -18,10 +18,7 @@ Route::middleware(['guest'])->group(function () {
   Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 });
 
-
-
-
-
+// untuk yg sdh llogin
 Route::middleware(['auth'])->group(function () {
   Route::get('/', [KelasController::class, 'index']);
   Route::get('kelas/add', [KelasController::class, 'create']);
