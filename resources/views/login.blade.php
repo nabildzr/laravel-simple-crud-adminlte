@@ -60,7 +60,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <input class="form-check-input" type="checkbox" value="" name="remember" id="flexCheckDefault" />
                                 <label class="form-check-label" for="flexCheckDefault"> Remember Me </label>
                             </div>
                         </div>

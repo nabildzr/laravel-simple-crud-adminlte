@@ -27,21 +27,23 @@ class LoginController extends Controller
 
 
         // validasi type data
-
         $credentials = $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
+
+        // cek dicentang apa ga
+        $remember = $request->has('remember');
+
+
         // titik autentikasi
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             RateLimiter::clear($throttleKey);
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
 
-
-        // 
         RateLimiter::hit($throttleKey, 60);
 
         return back()->withErrors([
